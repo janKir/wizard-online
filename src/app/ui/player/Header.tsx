@@ -2,9 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { TrickLabel } from "./TrickLabel";
 import { PlayerID } from "../../../shared/entities/players";
-import { usePlayerName } from "../GameContext";
+import { usePlayerCharacter, usePlayerName } from "../GameContext";
 import { Blinker } from "../components/Blinker";
 import { SettingsContainer } from "./SettingsContainer";
+import { PlayerAvatar } from "./PlayerAvatar";
 
 export interface HeaderProps {
   playerID: PlayerID;
@@ -18,10 +19,12 @@ export const Header: React.FC<HeaderProps> = ({
   isClient,
 }) => {
   const playerName = usePlayerName(playerID);
+  const playerCharacter = usePlayerCharacter(playerID);
 
   return (
     <Container>
       <PlayerTitle isTurn={isTurn} as={isClient ? "h1" : undefined}>
+        <PlayerAvatar name={playerName} character={playerCharacter} size={35} />
         {playerName}
         {isClient && <Blinker on={isTurn} />}
       </PlayerTitle>
@@ -47,6 +50,9 @@ const Spacer = styled.div`
 
 const PlayerTitle = styled.h3<{ isTurn: boolean }>`
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   ${({ isTurn }) =>
     isTurn
       ? css`

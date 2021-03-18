@@ -17,6 +17,7 @@ import {
   ProfileStore,
 } from "../services/profile.service";
 import { characters, WizardCharacter } from "../util/character-theme";
+import { PlayerAvatar } from "../player/PlayerAvatar";
 
 export interface EditProfileProps {
   defaultProfile?: ProfileStore;
@@ -83,6 +84,8 @@ export const EditProfile: React.FC<EditProfileProps> = ({
             </RadioGroup>
           </FormControl>
         </FormField>
+
+        <PlayerAvatar name={profile.name} character={profile.character} />
 
         <h3>Einstellungen</h3>
         <FormField>
