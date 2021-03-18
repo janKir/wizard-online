@@ -2,11 +2,16 @@
 
 The famous trick-taking card game for quarantine time and more!
 
+## Requirements
+
+- [NodeJs](https://nodejs.org/en/) >= v12
+- [yarn](https://yarnpkg.com/)
+- [Postgres](https://www.postgresql.org/) > 9
 
 ## Installation
 
 ```sh
-> git clone https://github.com/janKir/react-ts-parcel.git
+> git clone git@github.com:wizard-online/wizard-online.git
 > cd react-ts-parcel
 > yarn
 ```
